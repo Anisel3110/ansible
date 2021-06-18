@@ -1,0 +1,16 @@
+---
+- hosts: switch
+  connection: local
+  vars_files:
+      - myvarsfiles.yml
+  tasks:
+    - name: Installer / Commande avec question
+      ios_command:
+        commands: 
+          - command: install avce question (ex envoie de la cle ssh)
+            prompt: 'Question qui va sortir \[confirm\]'
+            answer: 'y'
+          #ou alors
+          - command: "{{ command }}""
+            prompt: '[confirm]'
+            answer: "\r"

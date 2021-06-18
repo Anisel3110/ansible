@@ -1,0 +1,11 @@
+---
+- hosts: switch
+  connection: local
+  vars_files:
+      - myvarsfiles.yml
+  tasks:
+      - name: creer vlan
+        ios_vlan:
+                 vlan_id: "{{ id_vlan }}"
+                 name: "{{ nom_vlan }}"
+                 state: present

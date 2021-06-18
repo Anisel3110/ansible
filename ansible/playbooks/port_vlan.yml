@@ -1,0 +1,10 @@
+---
+- hosts: switch
+  connection: local
+  vars_files:
+      - myvarsfiles.yml
+  tasks:
+    - name: add/move ports to VLAN
+      ios_vlan:
+        vlan_id: "{{ id_vlan }}"
+        interfaces: "{{ port }}"

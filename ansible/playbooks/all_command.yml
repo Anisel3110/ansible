@@ -1,0 +1,22 @@
+---
+- hosts: switch
+  connection: local
+  vars_files:
+      - myvarsfiles.yml
+  tasks:
+    - name: Une command
+      ios_command:
+        commands: show version
+
+    - name: Plusieurs commandes
+      ios_command:
+        commands:
+          - show version
+          - show vlan
+          - "{{ commande }}"    
+        #Supplementaire
+        wait_for: #comme un if qui attendra le resultat
+          - result[0] contains IOS
+          - resultat[1] constains Loopback0
+        register: show_vlan       #save dans une var le resultat
+        register: show_vlan.stdout_lines     #resultat separe ligne par ligne        

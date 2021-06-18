@@ -1,0 +1,16 @@
+---
+- hosts: switch
+  connection: local
+  vars_files:
+      - myvarsfiles.yml
+  tasks:
+    - name: Configure ip herlpers to a single interface
+      ios_config:
+        lines: 
+            - ip helper-adress "{{ helper }}" 
+        parents: "{{ item }}"
+        with_items:
+            - "{{ nom_vlan }}"
+
+
+

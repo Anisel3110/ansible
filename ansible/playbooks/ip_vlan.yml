@@ -1,0 +1,21 @@
+---
+- hosts: switch
+  connection: local
+  vars_files:
+      - myvarsfiles.yml
+  tasks:
+    - name: Set interfaces ip adress
+      ios_l3_interface:
+        name: "{{ nom_vlan }}"      #ou port
+        ipv4: "{{ ip_vlan }}"
+
+#become: yes
+
+#Au cas ou l'autre ne marche pas
+#    - name: configure interface settings
+#      ios_config:
+#        lines:
+#          - description test interface
+#          - ip address "{{ adress }}" "{{ mask }}"
+#        parents: "{{ nom_vlan }}"
+

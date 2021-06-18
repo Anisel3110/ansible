@@ -1,0 +1,9 @@
+---
+- hosts: switch
+  connection: local
+  vars_files:
+      - myvarsfiles.yml
+  tasks:
+    - name: show vlan
+      ios_command:
+        commands: show interfaces

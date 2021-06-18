@@ -1,0 +1,10 @@
+---
+- hosts: switch
+  connection: local
+  vars_files:
+      - myvarsfiles.yml
+  tasks:
+      - name: delete vlan
+        ios_vlan:
+          vlan_id: "{{ id_vlan }}"
+          state: absent

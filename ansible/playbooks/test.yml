@@ -1,0 +1,11 @@
+#Install Libre office
+- hosts: test
+  remote_user: tanguy
+  become: true
+  tasks:
+          - name: Instalation de GiT
+            apt:
+                    name: git
+                    state: latest
+
+

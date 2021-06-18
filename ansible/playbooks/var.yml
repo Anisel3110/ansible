@@ -1,0 +1,14 @@
+---
+
+- name: Test variables
+  hosts: all
+  become: yes
+  become_user: root
+
+  vars_files:
+    - myvarsfiles.yml
+
+  tasks:
+    - name: Show my variable
+      debug:
+        msg: "{{ id_vlan }}"
